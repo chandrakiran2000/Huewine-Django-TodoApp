@@ -1,0 +1,10 @@
+{% extends "myapp/base.html" %}
+{% block body%}
+    {% for task in task_list %}
+        {{task.name}} --> {{task.priority}} --> {{task.description}} --> {{task.status}} --> {{task.date}}
+        <br/>
+    {% endfor %}
+
+    
+    
+{% endblock%}

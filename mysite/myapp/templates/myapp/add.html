@@ -1,0 +1,75 @@
+{% extends "myapp/base.html" %}
+{% block body %}
+
+
+
+<div class="container"  >
+    <div class="row" style="height: 100vh; width: 100vw;">
+        <div class="col-md-6">
+        </div>
+        <div class="col-md-12 d-flex flex-direction-column justify-content-center">
+        <form class=" shadow" method = "POST">
+            <h1 class="">Add Task</h1>
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="text" class="form-control" name="name" id="name" placeholder="Enter Task Name">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="priority" id="priority" placeholder="Enter Task prioity">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="description" id="description" placeholder="Enter Task description">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="status" id="status" placeholder="Enter Task status">
+            </div>
+            <div class="form-group">
+                <input type="date" class="form-control" name="date" id="date">
+            </div>
+            <input class="btn btn-success" type="submit">
+        </form>
+        </div>
+    </div>
+</div>
+{%endblock%}
+
+
+
+<!--
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="text" name="name" id="name" placeholder="Enter Task Name">
+    <input type="text" name="priority" id="priority" placeholder="Enter Task prioity">
+    <input type="text" name="description" id="description" placeholder="Enter Task description">
+    <input type="text" name="status" id="status" placeholder="Enter Task status">
+    <input type="date" name="date" id="date">
+    <input type="submit">
+</form> 
+-->
+
+<!--<div class="container">
+    <div class="row">
+        <div class="col-md-6"></div>
+        <form class="p-6 shadow" method = "POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="text" class="form-control" name="name" id="name" placeholder="Enter Task Name">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="priority" id="priority" placeholder="Enter Task prioity">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="description" id="description" placeholder="Enter Task description">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="status" id="status" placeholder="Enter Task status">
+            </div>
+            <div class="form-group">
+                <input type="date" class="form-control" name="date" id="date">
+            </div>
+            <input class="btn btn-success" type="submit">
+        </form>
+        
+    </div>
+</div>
+-->
