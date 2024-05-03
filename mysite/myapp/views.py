@@ -12,10 +12,20 @@ def add(request):
         date = request.POST.get("date", "")
         task = Task(name=name, priority=priority, description=description, status=status,  date=date)
         task.save()
-        return redirect('/')
-    return render(request, 'myapp/add.html')
+        #return redirect('/')
+    task_list = Task.objects.all()
+    return render(request, 'myapp/add.html', {'task_list': task_list})
 
 
 def home (request):
     task_list = Task.objects.all()
+    # for i in task_list:
+    #     print(i.id)
+    # print(task_list)
     return render(request, 'myapp/home.html', {'task_list': task_list})
+
+def delete(request, id):
+    task = Task.objects.get(id=id)
+    task.delete()
+    # print(id)
+    return redirect('add')

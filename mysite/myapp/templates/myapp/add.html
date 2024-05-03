@@ -3,30 +3,63 @@
 
 
 
-<div class="container"  >
-    <div class="row" style="height: 80vh; width: 80vw;">
-        <div class="col-md-6"></div>
-        <div class="card-body col-md-12 d-flex flex-direction-column justify-content-center align-items-center">
-        <form   class="card p-5 bg-white shadow rounded" method = "POST">
-            <h1 class="">Add Task</h1>
+<div class="container" style="margin: 0px;font-family: roboto;">
+    <div class="row" style="height: 14vh; width: 99vw; background-color: rgb(115, 214, 16);">
+    <div class="col-12 card-header d-flex flex-direction-column justify-content-center align-items-center">
+        <h1 class="card-title text-white" style="font-size: 60px; font-weight: 600 ;font-family: roboto;">TODO</h1>
+    </div>
+    </div>
+    <div class="row" style="min-height: 80vh; width: 99vw; background-size: cover;background-image: url(https://img.freepik.com/free-photo/vivid-blurred-colorful-background_58702-2554.jpg)"> <!--background-size: cover;background-image: url(https://img.freepik.com/free-photo/vivid-blurred-colorful-background_58702-2554.jpg)-->
+        <!--<div class="col-12 card-header">TODO</div>-->
+        <!--form-->
+        
+        <div class="card-body col-md-4  mt-5 d-flex flex-direction-column justify-content-start align-items-start">
+        <form class="card pl-5 pr-5 bg-transparent  shadow rounded" method = "POST">
+            <h1 class="text-center mt-2 mb-3">Add Task</h1>
             {% csrf_token %}
-            <div class="form-group">
+            <div class="form-group">    
                 <input type="text" class="form-control" name="name" id="name" placeholder="Enter Task Name">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" name="priority" id="priority" placeholder="Enter Task prioity">
+                <input type="text" class="form-control" name="priority" id="priority" placeholder="Enter Task Prioity">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" name="description" id="description" placeholder="Enter Task description">
+                <input type="text" class="form-control" name="description" id="description" placeholder="Enter Task Description">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" name="status" id="status" placeholder="Enter Task status">
+                <input type="text" class="form-control" name="status" id="status" placeholder="Enter Task Status">
             </div>
             <div class="form-group">
                 <input type="date" class="form-control" name="date" id="date">
             </div>
-            <input class="btn btn-success" type="submit">
+            <input class="btn btn-success mb-3" type="submit">
         </form>
+        </div>
+        <!--tasks-->
+        <div class="col-md-8">
+            <div class="col-sm-12 m-3">
+                <h1 class="text-center  text-warning">Task Details</h1>
+            </div>
+            <div class="row">
+            {% for task in task_list %}
+            <div class="col-sm-6 col-md-4 mt-2 mb-2">
+                <div class="card bg-info shadow rounded">
+                    <div class="card-header text-white">
+                        <h3 class="card-title">{{task.name}}</h3>
+                    </div>
+                    <div class="card-body" style="border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; background-color: rgb(224, 243, 252);">
+                      <!--<h5 class="card-title">{{task.name}}</h5>-->
+                      <p class="card-text"><span style="color: black; font-weight: 600;">Priority :</span> {{task.priority}}</p>
+                      <p class="card-text"><span style="color: black; font-weight: 600;">Description :</span> {{task.description}}</p>
+                      <p class="card-text"><span style="color: black; font-weight: 600;">Status :</span> {{task.status}}</p>
+                      <p class="card-text"><span style="color: black; font-weight: 600;">Date :</span> {{task.date}}</p>
+                      <a href="#" class="btn btn-success">Update</a>
+                      <a href="{% url 'delete' id=task.id %}" class="btn btn-danger">Delete</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
         </div>
     </div>
 </div>

@@ -14,15 +14,18 @@
             </div>
             {% for task in task_list %}
             <div class="col-sm-6 col-md-4 mt-2">
-                <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">{{task.name}}</h5>
-                      <p class="card-text">{{task.priority}}</p>
-                      <p class="card-text">{{task.description}}</p>
-                      <p class="card-text">{{task.status}}</p>
-                      <p class="card-text">{{task.date}}</p>
+                <div class="card bg-info">
+                    <div class="card-header text-white">
+                        <h3 class="card-title">{{task.name}}</h3>
+                    </div>
+                    <div class="card-body bg-white">
+                      <!--<h5 class="card-title">{{task.name}}</h5>-->
+                      <p class="card-text"><span style="color: black; font-weight: 600;">Priority :</span> {{task.priority}}</p>
+                      <p class="card-text"><span style="color: black; font-weight: 600;">Description :</span> {{task.description}}</p>
+                      <p class="card-text"><span style="color: black; font-weight: 600;">Status :</span> {{task.status}}</p>
+                      <p class="card-text"><span style="color: black; font-weight: 600;">Deadline :</span> {{task.date}}</p>
                       <a href="#" class="btn btn-success">Update</a>
-                      <a href="#" class="btn btn-danger">Delete</a>
+                      <a href="{% url 'delete' id=task.id %}" class="btn btn-danger">Delete</a>
                     </div>
                 </div>
             </div>
