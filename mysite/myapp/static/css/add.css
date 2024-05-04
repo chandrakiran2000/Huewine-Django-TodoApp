@@ -1,0 +1,39 @@
+*{
+    box-sizing: border-box;
+  }
+.main-container{
+    margin: 0px;
+    font-family: roboto;
+}
+.main-row-todo{
+    height: 14vh; 
+    width: 99vw; 
+    background-color: rgb(115, 214, 16);
+}
+.todo-heading{
+    font-size: 60px; 
+    font-weight: 600;
+    font-family: roboto;
+}
+
+.todo-form-main-card{
+    min-height: 80vh; 
+    width: 99vw; 
+    background-image: url("https://img.freepik.com/free-photo/vivid-blurred-colorful-background_58702-2554.jpg");
+    background-size: cover;
+}
+
+.task-details-card{
+    border-bottom-left-radius: 3px; 
+    border-bottom-right-radius: 3px; 
+    background-color: rgb(224, 243, 252);
+    /* background-color: rgb(224, 243, 252); */
+}
+.task-details-card-span-heading{
+    color: black; 
+    font-weight: 600;
+}
+
+.btn:hover a.text-white {
+    text-decoration: none;
+  }

@@ -24,6 +24,15 @@ def home (request):
     # print(task_list)
     return render(request, 'myapp/home.html', {'task_list': task_list})
 
+def done(request, id):
+    task = Task.objects.get(id=id)
+    task.status = "Completed"
+    task.save()
+    # print(task.id)
+    # print(task.status)
+    return redirect("add")
+
+
 def delete(request, id):
     task = Task.objects.get(id=id)
     task.delete()
